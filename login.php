@@ -1,14 +1,5 @@
 
-<?php 
-
-$con = mysqli_connect("localhost","root","","shopping-cart-db");
-if(mysqli_connect_errno()){
-	die("Coneection unsuceesful".mysqli_connect_error());
-}else{
-	echo "Connection suceesful";
-}
-
-?>
+<?php include "connection.php"; ?>
 
 <!DOCTYPE html>
 <html>
@@ -42,6 +33,30 @@ a{
 </ul>
 </div><br><br>
 
+<?php 
+if(isset($_POST['submit'])){
+
+$uname = $_POST['uname'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$compassword = $_POST['cpassword'];
+$user_r = $_POST['urole'];
+$enpassword = sha1($compassword);
+ 
+ echo "$uname";
+ /*
+$dbQuery = "INSERT into user-role-details(username,email,password,user-role) values('$uname','$email','$enpassword','$user-r')";
+
+$result = mysqli_query($con,$dbQuery);
+if($result){
+	echo "record is added";
+}else{
+	echo "record is not added";
+}*/
+
+}
+?>
+
 
 <from action = "login.php" method  = "POST" class="from">
 
@@ -63,35 +78,15 @@ a{
 <option value = "seller">Seller</option>
 <option value = "user">User</option>
 </select><br><br>
-<input type = "submit" name ="submit" value = "Submit">
+<input type = "submit" name ="submit">
 
 </from>
 
 
 
-<?php 
-if(isset($_POST['submit'])){
 
-$uname = $_POST['uname'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$compassword = $_POST['cpassword'];
-$user_r = $_POST['urole'];
-$enpassword = sha1($compassword);
-}
-
-$dbQuery = "insert into user-role-details(username,email,password,user-role) values('$uname','$email','$enpassword','$user-r')";
-
-$result = mysqli_query($con,$dbQuery);
-if($result){
-	echo "record is added";
-}else{
-	echo "record is not added";
-}
-
-
-?>
 
 </body>
 
 </html>
+<?php mysqli_close($con); ?>
