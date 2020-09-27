@@ -16,9 +16,42 @@ if(mysqli_connect_errno()){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+  .center{
+    margin-left:650px;
+  }
+ 
+ .section{
+   padding-right:130px;
+   padding-bottom:5px;
+   padding-top:5px;
+ }
+
+ .section1{
+   padding-right:230px;
+   padding-bottom:5px;
+   padding-top:5px;
+ }
+ .section2{
+   padding-right:244px;
+   padding-bottom:7px;
+   padding-top:7px;
+   text-align:center;
+   background-color:#009933;
+   border:none;
+   
+   
+ }
+
+ 
+  
+  </style>
+
+
 </head>
 <body>
-  <form action ="signin.php" method ="POST">
+  <form action ="signin.php" method ="POST" class="center">
+  <h3>SIGN UP</h3>
   <label>USERNAME:</label><br>
   <input type ="text" name = "username" placeholder ="USERNAME" class="section"><br><br>
   <label>EMAIL:</label><br>
@@ -28,14 +61,14 @@ if(mysqli_connect_errno()){
   <label>CONFORM PASSWORD:</label><br>
   <input type ="password" name = "cpassword" placeholder ="CONFROM PASSWORD" class="section"><br><br>
   <label>USER ROLE:</label><br>
-  <select name ="user-role" class="section"> 
+  <select name ="user-role" class="section1"> 
   
    <option>Admin</option>
    <option>Seller</option>
    <option>User</option> 
   </select>
 <br><br>
-  <input type ="submit" name ="submit" class="section">
+  <input type ="submit" name ="submit" class="section2">
   </form>
 
 <?php
