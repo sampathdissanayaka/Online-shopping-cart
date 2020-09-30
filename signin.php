@@ -10,6 +10,7 @@ if(mysqli_connect_errno()){
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +86,7 @@ if($password== $conpassword){
 
 //print_r($_POST);
 $dbQuery = "INSERT INTO user
-VALUES ('','$username', '$email', '$conpassword','$userrole')";
+VALUES ('','$username', '$email', '$enpassword','$userrole')";
 /*$result = mysqli_query($con,$dbQuery);
 
 if($result){
